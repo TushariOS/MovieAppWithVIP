@@ -1,8 +1,8 @@
-# MovieAppWithVIP + VIP Architecture + Builder pattern + Dependency Injection.
+# VIP Architecture + Builder pattern + Dependency Injection.
 This project build with the help of VIP Architecture, Builder pattern and Dependency Injection.
 
 # Purpose
-_MovieAppWithVIP the repo to understand and learn VIP Architecture, Builder pattern and Dependency Injection.
+MovieAppWithVIP the repo to understand and learn VIP Architecture, Builder pattern and Dependency Injection.
 
 # Authors
 - Tushar Jaunjalkar
@@ -15,6 +15,7 @@ In Clean Swift, your project structure is built around scenes. Here is an exampl
 - ViewController
 - Interactor
 - Presenter
+
 The communication between the components is done with protocols. Each component will contain protocols which will be used for receiving and passing data between them. ViewController communicates with Interactor, then Interactor with Presenter and Presenter with ViewController.
 
 # Flow
