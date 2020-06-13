@@ -12,7 +12,7 @@ Then Clean architecture, introduced by Robert C. Martin (a.k.a. Uncle Bob) start
 In Clean Swift, your project structure is built around scenes. Here is an example how does one scene looks like. In other words, we will have a set of components for each scene that will "work" for our controller. These are the components:
 - Models
 - Router
-- ViewController
+- View
 - Interactor
 - Presenter
 
