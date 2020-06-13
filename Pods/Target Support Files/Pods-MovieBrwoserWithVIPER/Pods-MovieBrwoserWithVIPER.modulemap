@@ -1,0 +1,6 @@
+framework module Pods_MovieBrwoserWithVIPER {
+  umbrella header "Pods-MovieBrwoserWithVIPER-umbrella.h"
+
+  export *
+  module * { export * }
+}
