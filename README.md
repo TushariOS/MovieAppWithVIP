@@ -1,5 +1,8 @@
-# MovieAppWithVIP
+# MovieAppWithVIP + VIP Architecture + Builder pattern + Dependency Injection.
 This project build with the help of VIP Architecture, Builder pattern and Dependency Injection.
+
+# Purpose
+_MovieAppWithVIP the repo to understand and learn VIP Architecture, Builder pattern and Dependency Injection.
 
 # Authors
 - Tushar Jaunjalkar
