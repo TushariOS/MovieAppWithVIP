@@ -9,26 +9,29 @@
 import Foundation
 
 public struct HTTPRequestFactory {
-
+    
     func baseURL() -> URL {
         guard let baseURL = URL(string: BusinessConstants.URLConstant.baseURL) else {
             fatalError("Base url")
         }
         return  baseURL
     }
-
+    
     func  header() -> Headers {
         return ["Content-type" : "application/json"]
     }
-
+    
     func reuest(ofType requestType: HTTPRequestType) -> HTTPRequest {
         switch requestType {
         case .getMovies(let page):
             print("get movie")
             return getMovieList(page: page)
+        case .getMoviesWith(let search, let page):
+            print("prin", search, page)
+            return getMovieListWithSearchText(searchString: search, page: page)
         }
     }
-
+    
     private func getMovieList(page: Int) -> HTTPRequest {
         let path = BusinessConstants.URLConstant.getMovieListURL
         let paramter = ["page" : page,
@@ -39,5 +42,19 @@ public struct HTTPRequestFactory {
                            queryItems: paramter,
                            paramters: nil,
                            header: nil)
+    }
+    
+    private func getMovieListWithSearchText(searchString: String, page: Int) -> HTTPRequest {
+        let path = BusinessConstants.URLConstant.searchURL
+        let paramter = ["page" : page,
+                        "api_key" : BusinessConstants.URLConstant.api_key,
+                        "query": searchString] as [String : Any]
+        return HTTPRequest(method: .get,
+                           baseURL: baseURL(),
+                           path: path,
+                           queryItems: paramter,
+                           paramters: nil,
+                           header: nil)
+        
     }
 }

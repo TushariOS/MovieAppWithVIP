@@ -26,4 +26,18 @@ final public class MoviePresenter: MovieInteractorOutput {
             }
         }
     }
+    
+//    func didLoadSearchBrowser(_ movies: MovieResult, currentPage: Int) {
+//        if movies.totalPages != movies.page {
+//            if let movieArray = movies.results {
+//                let movies =  MoviesViewDispalyModal(movies: movieArray)
+//                movies.movieArrayDisplayModel.forEach { (movie) in
+//                    movieArrayDisplayModel.append(movie)
+//                }
+//                view.updateSearchMovieList(movies: movieArrayDisplayModel, page: currentPage + pageConstant)
+//            }
+//        }
+//    }
+    
+
 }

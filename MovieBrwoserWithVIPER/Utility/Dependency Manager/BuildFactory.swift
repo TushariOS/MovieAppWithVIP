@@ -11,4 +11,5 @@ import Foundation
 protocol BuildFactory {
 
     func movieListBuilder() -> MovieListBuilder
+    func searchViewBuilder() -> SearchBuilder
 }

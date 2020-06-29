@@ -57,6 +57,10 @@ final class MovieListViewController: UIViewController, MovieListView {
         callMovieService(page: currentPage)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Movie Browser"
+    }
     
     // MARK: - Private Methods
     
@@ -71,19 +75,7 @@ final class MovieListViewController: UIViewController, MovieListView {
         
         collectionViewFlowLayout.scrollDirection = .vertical
         collectionViewFlowLayout.minimumLineSpacing = 0
-        collectionViewFlowLayout.minimumInteritemSpacing = 0
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        if #available(iOS 11.0, *) {
-            //To change iOS 11 navigationBar largeTitle color
-
-            UINavigationBar.appearance().prefersLargeTitles = true
-            UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.orange]
-        } else {
-            // for default navigation bar title color
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.orange]
-        }
-
+        collectionViewFlowLayout.minimumInteritemSpacing = 0        
     }
     
     /// Set up collection view.
@@ -133,6 +125,10 @@ final class MovieListViewController: UIViewController, MovieListView {
         if hasScrlolledEnoughTriggerPaggination() {
             interactor.loadMovie(page: self.currentPage)
         }
+    }
+    
+    @IBAction func searchAction(_ sender: Any) {
+        router.routeToMovieSearch()
     }
 }
 

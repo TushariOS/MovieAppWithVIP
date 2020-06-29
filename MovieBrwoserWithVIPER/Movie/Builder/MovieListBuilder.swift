@@ -62,7 +62,7 @@ final class MovieListBuilder: MovieListBuildable {
     }
     
     private func buildRouter() -> MovieRouter {
-        let router = MovieRouter()
+        let router = MovieRouter(dependencyManager: dependencyManager)
         return router
     }
 }

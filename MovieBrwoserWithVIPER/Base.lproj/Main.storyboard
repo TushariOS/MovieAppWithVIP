@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="MovieListViewController" id="BYZ-38-t0r" customClass="MovieListViewController" customModule="MovieBrwoserWithVIPER" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-IQ-TmR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="571"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MgH-IQ-TmR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cc7-WI-TqZ">
                                     <size key="itemSize" width="50" height="50"/>
@@ -31,28 +31,83 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MgH-IQ-TmR" secondAttribute="bottom" id="6ow-VL-K7x"/>
+                            <constraint firstItem="MgH-IQ-TmR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SuJ-Qq-Bwd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MgH-IQ-TmR" secondAttribute="trailing" id="YAw-9z-ulL"/>
-                            <constraint firstItem="MgH-IQ-TmR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hkX-jj-rRX"/>
                             <constraint firstItem="MgH-IQ-TmR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="w25-oD-22Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie Browser" id="RVQ-97-gsX"/>
+                    <navigationItem key="navigationItem" title="Movie Browser" id="RVQ-97-gsX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="OD4-Ka-KjT">
+                            <connections>
+                                <action selector="searchAction:" destination="BYZ-38-t0r" id="2mj-BJ-Kf8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="MgH-IQ-TmR" id="PVq-Uy-VOc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="115.59220389805098"/>
+            <point key="canvasLocation" x="948" y="116"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="3eC-n6-tRW">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="qlK-sW-cEr" customClass="SearchViewController" customModule="MovieBrwoserWithVIPER" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Emd-XX-g4V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Iv-5Y-Pm6">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gCL-Fh-Hhj">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aVl-mA-91g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ls7-3k-ChS"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aVl-mA-91g" firstAttribute="top" secondItem="bBg-Gk-7jv" secondAttribute="top" id="27u-yg-s8D"/>
+                            <constraint firstItem="6Iv-5Y-Pm6" firstAttribute="top" secondItem="aVl-mA-91g" secondAttribute="bottom" id="8cl-3E-3FB"/>
+                            <constraint firstItem="6Iv-5Y-Pm6" firstAttribute="trailing" secondItem="bBg-Gk-7jv" secondAttribute="trailing" id="KIN-vb-dFO"/>
+                            <constraint firstItem="aVl-mA-91g" firstAttribute="leading" secondItem="bBg-Gk-7jv" secondAttribute="leading" id="LH0-d3-xpO"/>
+                            <constraint firstItem="6Iv-5Y-Pm6" firstAttribute="leading" secondItem="bBg-Gk-7jv" secondAttribute="leading" id="RSV-y1-RwD"/>
+                            <constraint firstItem="6Iv-5Y-Pm6" firstAttribute="bottom" secondItem="bBg-Gk-7jv" secondAttribute="bottom" id="c8C-H2-yk8"/>
+                            <constraint firstItem="aVl-mA-91g" firstAttribute="trailing" secondItem="bBg-Gk-7jv" secondAttribute="trailing" id="cxK-9r-Xhr"/>
+                            <constraint firstItem="6Iv-5Y-Pm6" firstAttribute="top" secondItem="aVl-mA-91g" secondAttribute="bottom" id="wVM-rb-poO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bBg-Gk-7jv"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="6Iv-5Y-Pm6" id="TR5-1h-6GA"/>
+                        <outlet property="searchBar" destination="aVl-mA-91g" id="4Cp-FD-HYM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-W1-9kS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="948" y="823.53823088455783"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oNY-P2-Meb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F4a-Nh-wmO" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="xx4-1E-xVc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xx4-1E-xVc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

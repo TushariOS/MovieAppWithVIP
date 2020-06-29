@@ -43,4 +43,9 @@ class MovieDependencyManager: DependencyManager {
         let builder = MovieListBuilder(dependencyManager: self)
         return builder
     }
+    
+    func searchViewBuilder() -> SearchBuilder {
+        let builder = SearchBuilder(dependencyManager: self)
+        return builder
+    }
 }

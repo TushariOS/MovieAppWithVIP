@@ -31,37 +31,44 @@ public final class RequestManager {
         
         let reuest = httpRequestFactory.reuest(ofType: requetType)
         let thenResolveResponse: (T?, Swift.Error?) -> Void = { [weak self] (model, originalError) in
-                print("error", originalError)
-                compleation(model, nil)
-            }
-
-            httpRequestPerformer.perform(request: reuest, completion: thenResolveResponse)
-            // httpRequestPerformer.perform(request: reuest, completion: thenResolveResponse)
+            print("error", originalError)
+            compleation(model, nil)
         }
-
-
-        /// Perform HTTP request along with other behaviors specific to requests.
-        ///
-        /// - Parameters:
-        ///   - requestType: Request
-        ///   - compleation: Compleation with model when successful, otherwaise error
-        func perform<T: Swift.Decodable>(requestType: HTTPRequestType, compleation: @escaping ([T]?, Error?) -> Void) {
-            let request = httpRequestFactory.reuest(ofType: requestType)
-            let thenResolveResponse: ([T]?, Swift.Error?) -> Void = {
-                [weak self] (model, error) in
-                compleation(model, nil)
-            }
-
-            // httpRequestPerformer.perform(request: request, completion: thenResolveResponse)
-            httpRequestPerformer.perform(request: request, completion: thenResolveResponse)
-        }
+        
+        httpRequestPerformer.perform(request: reuest, completion: thenResolveResponse)
+        // httpRequestPerformer.perform(request: reuest, completion: thenResolveResponse)
     }
+    
+    
+    /// Perform HTTP request along with other behaviors specific to requests.
+    ///
+    /// - Parameters:
+    ///   - requestType: Request
+    ///   - compleation: Compleation with model when successful, otherwaise error
+    func perform<T: Swift.Decodable>(requestType: HTTPRequestType, compleation: @escaping ([T]?, Error?) -> Void) {
+        let request = httpRequestFactory.reuest(ofType: requestType)
+        let thenResolveResponse: ([T]?, Swift.Error?) -> Void = {
+            [weak self] (model, error) in
+            compleation(model, nil)
+        }
+        
+        // httpRequestPerformer.perform(request: request, completion: thenResolveResponse)
+        httpRequestPerformer.perform(request: request, completion: thenResolveResponse)
+    }
+}
 
 // MARK: - MovieService
 
-// Implementing Movie sercie protocol
+// Implementing Movie service protocol
 extension RequestManager: MovieService {
     func getMovies(page: Int, compleation: @escaping (MovieResult?, Error?) -> Void) {
         perform(requetType: .getMovies(page: page), compleation: compleation)
+    }
+}
+
+// Implementing Search movies service protocol
+extension RequestManager: SearchService {
+    func getMoviesWithSearch(searchString: String, page: Int, compleation: @escaping (MovieResult?, Error?) -> Void) {
+        perform(requetType: .getMoviesWith(searchString: searchString, page: page), compleation: compleation)
     }
 }

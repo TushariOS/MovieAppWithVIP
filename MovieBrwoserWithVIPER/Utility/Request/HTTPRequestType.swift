@@ -12,7 +12,7 @@ import Foundation
 enum HTTPRequestType {
 
     // Movie services
-    case getMovies(
-        page: Int
-    )
+    case getMovies(page: Int)
+    
+    case getMoviesWith(searchString: String, page: Int)
 }
